@@ -16,6 +16,6 @@ RUN set -xe \
 	&& cd /usr/local/src/elixir \
 	&& make install clean
 
-COPY / .
+COPY / ./src
 
-CMD ["sh"]
+CMD ["bash"]
