@@ -5,5 +5,13 @@ defmodule ArithmeticUtils do
     |> Integer.digits
     |> Enum.sum
     |> digital_root
-  end  
+  end
+
+  def set_of_multiples(n, limit, set \\ MapSet.new()) do
+    set
+    |> MapSet.put(n)
+    |> MapSet.put(limit)
+  end
 end
+
+IO.puts Enum.sum ArithmeticUtils.set_of_multiples 1, 2
