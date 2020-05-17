@@ -1,3 +1,7 @@
+# docker build . -t elixir
+# docker run -ti -v $PWD:/my_scripts elixir
+# elixir arithmetic_utils.exs
+
 FROM erlang:22
 
 # elixir expects utf8.
@@ -15,4 +19,6 @@ RUN set -xe \
 	&& cd /usr/local/src/elixir \
 	&& make install clean
 
-CMD ["iex"]
+WORKDIR /my_scripts
+
+CMD ["bash"]
