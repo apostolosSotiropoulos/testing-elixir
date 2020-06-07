@@ -18,3 +18,10 @@ end
 
 IO.inspect ArithmeticUtils.set_of_multiples(3, 1)  #MapSet<[]
 IO.inspect ArithmeticUtils.set_of_multiples(3, 10) #MapSet<[3, 6, 9]>
+
+# so to calc the sum of multiples of 3 and 5 till ten:
+limit = 10
+ArithmeticUtils.set_of_multiples(5, limit)
+|> (&ArithmeticUtils.set_of_multiples(3, limit, &1)).()
+|> Enum.sum()
+|> IO.inspect
