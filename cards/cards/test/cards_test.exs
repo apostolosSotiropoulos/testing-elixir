@@ -8,4 +8,8 @@ defmodule CardsTest do
   test "greets the world" do
     assert Cards.say_hi == :hi
   end
+
+  test "creates deck of 52 cards" do
+    assert length(Cards.create_deck) == 52
+  end
 end
