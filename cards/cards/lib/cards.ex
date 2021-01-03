@@ -8,8 +8,8 @@ defmodule Cards do
 
   ## Examples
 
-      iex> Cards.hello()
-      :world
+      iex> Cards.say_hi()
+      :hi
 
   """
   def say_hi do
