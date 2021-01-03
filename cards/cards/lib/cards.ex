@@ -21,6 +21,10 @@ defmodule Cards do
       List.flatten()
   end
 
+  def shuffle(deck) do
+    deck |> Enum.shuffle()
+  end
+
   defp ranks do
     [:ace] ++ Enum.to_list(2..10) ++ [:jack, :queen, :king]
   end
