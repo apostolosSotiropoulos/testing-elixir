@@ -25,6 +25,10 @@ defmodule Cards do
     deck |> Enum.shuffle()
   end
 
+  def contains?(cards, card) do
+    Enum.member? cards, card
+  end
+
   defp ranks do
     [:ace] ++ Enum.to_list(2..10) ++ [:jack, :queen, :king]
   end
