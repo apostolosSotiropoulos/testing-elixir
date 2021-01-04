@@ -29,9 +29,9 @@ defmodule Cards do
     Enum.member? cards, card
   end
 
-  def deal(_deck, 0), do: []
-  def deal([deck_head | deck_tail], number_of_cards) do
-    [ deck_head | deal(deck_tail, number_of_cards - 1)]
+  def deal(deck, number_of_cards) do
+    split = Enum.split(deck, number_of_cards)
+    %{dealt_cards: elem(split, 0), rest_of_the_deck: elem(split, 1)}
   end
 
   defp ranks do

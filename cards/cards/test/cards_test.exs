@@ -27,12 +27,17 @@ defmodule CardsTest do
     assert Cards.contains?(deck, included_card)
   end
 
-  test "deals 2 cards from the deck" do
+  test "deals returns 2 cards as dealt_cards" do
     deck = Cards.create_deck
+    deal = Cards.deal(deck, 2)
 
-    hand = Cards.deal(deck, 2)
+    assert length(deal.dealt_cards) == 2
+  end
 
-    assert hd(hand) == hd(deck)
-    assert hd(tl hand) == hd(tl deck)
+  test "deals returns the rest_of_the_deck" do
+    deck = Cards.create_deck
+    deal = Cards.deal(deck, 2)
+
+    assert length(deal.rest_of_the_deck) == length(deck) - 2
   end
 end
