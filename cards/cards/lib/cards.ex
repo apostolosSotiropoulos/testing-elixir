@@ -41,10 +41,12 @@ defmodule Cards do
   def load(file) do
     {status, binary} = File.read(file)
 
-    case status do
+    content = case status do
       :ok -> :erlang.binary_to_term(binary)
       :error -> "not a valid filename"
     end
+
+    {status, content}
   end
 
   defp ranks do
