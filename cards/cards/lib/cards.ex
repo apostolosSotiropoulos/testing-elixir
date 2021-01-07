@@ -34,6 +34,19 @@ defmodule Cards do
     %{dealt_cards: dealt_cards, rest_of_the_deck: rest_of_the_deck}
   end
 
+  def save(data, file) do
+    File.write(file, :erlang.term_to_binary(data))
+  end
+
+  def load(file) do
+    {status, binary} = File.read(file)
+
+    case status do
+      :ok -> :erlang.binary_to_term(binary)
+      :error -> "not a valid filename"
+    end
+  end
+
   defp ranks do
     [:ace] ++ Enum.to_list(2..10) ++ [:jack, :queen, :king]
   end
