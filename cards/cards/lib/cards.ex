@@ -30,8 +30,8 @@ defmodule Cards do
   end
 
   def deal(deck, number_of_cards) do
-    split = Enum.split(deck, number_of_cards)
-    %{dealt_cards: elem(split, 0), rest_of_the_deck: elem(split, 1)}
+    {dealt_cards, rest_of_the_deck} = Enum.split(deck, number_of_cards)
+    %{dealt_cards: dealt_cards, rest_of_the_deck: rest_of_the_deck}
   end
 
   defp ranks do
