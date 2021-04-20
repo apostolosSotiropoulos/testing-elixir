@@ -4,15 +4,18 @@ defmodule Identicon do
   """
 
   @doc """
-  Hello world.
+  creates a 5 X 5 tiles representation that is vertically symetrical
 
   ## Examples
 
-      iex> Identicon.hello()
-      :world
-
+      iex> identicon = Identicon.create
+      iex> [first, second, _, fourth, fifth] = identicon
+      iex> first == fifth
+      true
+      iex> second == fourth
+      true
   """
-  def hello do
-    :world
+  def create do
+    [1,2,3,2,1]
   end
 end
