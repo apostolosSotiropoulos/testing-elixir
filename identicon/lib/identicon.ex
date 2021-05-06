@@ -1,27 +1,25 @@
 defmodule Identicon do
-  @moduledoc """
-  Documentation for `Identicon`.
-  """
-
-  @doc """
-  creates a 5 X 5 tiles representation that is vertically symetrical
-
-  ## Examples
-
-      iex> identicon = Identicon.create
-      iex> [first, second, _, fourth, fifth] = identicon
-      iex> first == fifth
-      true
-      iex> second == fourth
-      true
-  """
   def create do
-    [
-      [1,2,3,2,1],
-      [1,2,3,2,1],
-      [1,2,3,2,1],
-      [1,2,3,2,1],
-      [1,2,3,2,1]
-    ]
+    unique_list_of_random_symetric_sublists(number_of_sublists: 5)
+  end
+
+  # defp unique_list_of_random_symetric_sublists(number_of_sublists: 0, unique_list: list) when generated_before?(list) do
+  #   unique_list_of_random_symetric_sublists(number_of_sublists: Enum.count(list))
+  # end
+
+  defp unique_list_of_random_symetric_sublists(number_of_sublists: 0, unique_list: list) do
+    list
+  end
+
+  defp unique_list_of_random_symetric_sublists(number_of_sublists: number) do
+    unique_list_of_random_symetric_sublists(number_of_sublists: number - 1, unique_list: [random_symmetric_list])
+  end
+
+  defp unique_list_of_random_symetric_sublists(number_of_sublists: number, unique_list: list) do
+    unique_list_of_random_symetric_sublists(number_of_sublists: number - 1, unique_list: list ++ [random_symmetric_list])
+  end
+
+  defp random_symmetric_list do
+    [1,2,3,2,1]
   end
 end
