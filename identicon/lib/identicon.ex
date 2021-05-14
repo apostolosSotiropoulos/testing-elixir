@@ -20,6 +20,9 @@ defmodule Identicon do
   end
 
   defp random_symmetric_list do
-    [1,2,3,2,1]
+    random1 = Enum.random(0..9)
+    random2 = Enum.random(0..9)
+    random3 = Enum.random(0..9)
+    [random1, random2, random3, random2, random1]
   end
 end
